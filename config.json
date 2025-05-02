@@ -1,0 +1,35 @@
+{
+  "transformations": [
+    {
+      "operation": "select",
+      "params": {
+        "columns": ["id", "name", "age"]
+      }
+    },
+    {
+      "operation": "filter",
+      "params": {
+        "condition": "age > 25"
+      }
+    },
+    {
+      "operation": "withColumn",
+      "params": {
+        "name": "age_plus_10",
+        "expr": "col('age') + 10"
+      }
+    },
+    {
+      "operation": "cache"
+    }
+  ],
+  "actions": [
+    {
+      "operation": "show",
+      "params": {
+        "n": 5,
+        "truncate": false
+      }
+    }
+  ]
+}
